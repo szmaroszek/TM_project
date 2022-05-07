@@ -4,7 +4,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from dataOperations.cleanData import text_tokenizer
 
 
-def get_keywords_count(df: pd.DataFrame):
+def get_keywords_count(df: pd.DataFrame) -> dict:
     vectorizer = CountVectorizer(tokenizer=text_tokenizer)
     X_transform = vectorizer.fit_transform(df['text'])
     x_transformed_arr = np.sum(X_transform.toarray(), 0)
@@ -26,7 +26,7 @@ def get_keywords_count(df: pd.DataFrame):
     return top_10_count
 
 
-def get_top_10_keywords(df: pd.DataFrame):
+def get_top_10_keywords(df: pd.DataFrame) -> list:
     vectorizer = TfidfVectorizer(tokenizer=text_tokenizer)
     X_transform = vectorizer.fit_transform(df['text'])
     x_transformed_arr = np.sum(X_transform.toarray(), 0)

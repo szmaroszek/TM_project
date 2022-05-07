@@ -2,7 +2,7 @@ from prettytable import PrettyTable
 import matplotlib.pyplot as plt
 
 
-def get_graph_count(data):
+def get_graph_count(data: dict) -> None:
     x = PrettyTable()
     x.field_names = ["Word", "Count"]
     for word, count in data.items():
