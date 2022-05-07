@@ -7,8 +7,8 @@ from nltk.corpus import stopwords
 def clean_data(df: pd.DataFrame):
     for index, row in df.iterrows():
         row[2] = text_tokenizer(row[2])
-        print(row)
     return df["text"]
+
 
 def text_tokenizer(text):
     text = clear_text(text)
