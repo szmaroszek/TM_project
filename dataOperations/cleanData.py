@@ -6,8 +6,9 @@ from nltk.corpus import stopwords
 
 def clean_data(df: pd.DataFrame):
     for index, row in df.iterrows():
-        row[2] = text_tokenizer(row[2])
-    return df["text"]
+        text_tokenizer(row[2])
+        df.at[index,'text'] = ' '.join(text_tokenizer(row[2]))
+    return df
 
 
 def text_tokenizer(text):
@@ -45,3 +46,4 @@ def stem_text(text: str) -> str:
 
 def clear_short_words(text):
     return " ".join(word for word in text.split() if len(word) > 3)
+    
